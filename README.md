@@ -1,5 +1,4 @@
 # Gaia - Generic C++ GUI system
-============================
 
 Gaia is a C++ GUI library mainly designed for games or applications that need a light GUI system. It is intended to be extensive and easy to use
 
