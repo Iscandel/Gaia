@@ -217,7 +217,7 @@ void ComboBox::onClicCombo(MouseEvent& ev)
 ///////////////////////////////////////////////////////////////////////////////
 void ComboBox::onNewSelection(Event&)
 {
-	PtrTextListBoxItem item = boost::dynamic_pointer_cast<TextListBoxItem>(getListBox()->getSelectedItem());
+	PtrTextListBoxItem item = std::dynamic_pointer_cast<TextListBoxItem>(getListBox()->getSelectedItem());
 	if(item)
 	{
 		std::string val = item->getText();

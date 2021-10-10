@@ -6,6 +6,8 @@
 #include "Gaia/GuiManager.h"
 #include "Gaia/widgets/BaseWidget.h"
 
+#include <assert.h>
+
 namespace gaia
 {
 LayoutInfos::LayoutInfos(void)

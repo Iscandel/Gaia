@@ -2,7 +2,7 @@
 #include "Gaia/GuiManager.h"
 #include "Gaia/tools/Logger.h"
 #include "Gaia/tools/Tools.h"
-#include "../../../../Dependencies/Headers/tinyxml/tinyxml.h"
+#include "tinyxml/tinyxml.h"
 
 #include <iostream>
 #include <sstream>

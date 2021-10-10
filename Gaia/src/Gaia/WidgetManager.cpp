@@ -104,7 +104,7 @@ void WidgetsManager::clean()
 ///////////////////////////////////////////////////////////////////////////////
 std::vector<PtrWidget> WidgetsManager::getAllWidgets()
 {
-	std::vector<boost::shared_ptr<BaseWidget> > vec;
+	std::vector<std::shared_ptr<BaseWidget> > vec;
 
 	std::map<std::string, PtrWidget>::iterator it = myWidgets.begin();
 	for(;it != myWidgets.end(); ++it)

@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Gaia/tools/Tools.h"
 
-#include <boost/tokenizer.hpp>
+#include <regex>
 #include <cctype> 
 #include <algorithm>
 
@@ -35,28 +35,42 @@ namespace tools
 
 	//=========================================================================
 	///////////////////////////////////////////////////////////////////////////
-	std::vector<std::string> split(const std::string& message, const std::string& separateurs)
+	std::vector<std::string> split(const std::string& s, const std::string& regex)
 	{
 		std::vector<std::string> res;
+		std::regex words_regex(regex);
+		auto words_begin = std::sregex_iterator(s.begin(), s.end(), words_regex);
+		auto words_end = std::sregex_iterator();
 
-		typedef boost::tokenizer<boost::char_separator<char> > my_tok;
-
-		//Custom separator
-		boost::char_separator<char> sep(separateurs.c_str());
-
-		// create custom tokenize
-		my_tok tok(message, sep);
-
-		// iterate the token sequence
-		for (my_tok::const_iterator i = tok.begin();
-			i != tok.end();
-			++i)
-		{
-			res.push_back(*i);
-		}
-
+		for (std::sregex_iterator i = words_begin; i != words_end; ++i)
+			res.push_back((*i).str());
 		return res;
 	}
+
+	//=========================================================================
+	///////////////////////////////////////////////////////////////////////////
+	//std::vector<std::string> split(const std::string& message, const std::string& separateurs)
+	//{
+	//	std::vector<std::string> res;
+
+	//	typedef boost::tokenizer<boost::char_separator<char> > my_tok;
+
+	//	//Custom separator
+	//	boost::char_separator<char> sep(separateurs.c_str());
+
+	//	// create custom tokenize
+	//	my_tok tok(message, sep);
+
+	//	// iterate the token sequence
+	//	for (my_tok::const_iterator i = tok.begin();
+	//		i != tok.end();
+	//		++i)
+	//	{
+	//		res.push_back(*i);
+	//	}
+
+	//	return res;
+	//}
 
 	//=============================================================================
 	///////////////////////////////////////////////////////////////////////////////

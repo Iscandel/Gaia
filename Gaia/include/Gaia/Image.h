@@ -62,7 +62,7 @@ public:
 	/// \return A pointer to the texture.
 	///////////////////////////////////////////////////////////////////////////
 	template<class T>
-	boost::shared_ptr<T> getConvertedTexture() {return boost::static_pointer_cast<T>(myTexture);}
+	std::shared_ptr<T> getConvertedTexture() {return std::static_pointer_cast<T>(myTexture);}
 
 	///////////////////////////////////////////////////////////////////////////
 	/// \brief Returns the area defining the image on the texture.

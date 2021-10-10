@@ -46,7 +46,7 @@ public:
 	void clearImages();
 
 protected:
-	std::map<std::string, boost::shared_ptr<ImageSheet> > myImageSheets; ///< Image sheets list.
+	std::map<std::string, std::shared_ptr<ImageSheet> > myImageSheets; ///< Image sheets list.
 };
 
 } //end namespace

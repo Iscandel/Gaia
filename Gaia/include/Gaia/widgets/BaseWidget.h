@@ -2,18 +2,12 @@
 #define H__BASEWIDGET_100920110149__H
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Headers-External
-///////////////////////////////////////////////////////////////////////////////
-#include <boost/function.hpp>
-#include <boost/function_equal.hpp>
-#include <boost/smart_ptr.hpp>
-#include <boost/enable_shared_from_this.hpp>
-#include <boost/bind.hpp>
-
-///////////////////////////////////////////////////////////////////////////////
 /// Headers-STL
 ///////////////////////////////////////////////////////////////////////////////
+#include <functional>
+#include <memory>
 #include <vector>
+
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Headers-GUI
@@ -38,7 +32,7 @@ class IWidgetRenderer;
 class BaseWidget;
 class FocusWidgetManager;
 
-typedef boost::shared_ptr<BaseWidget> PtrWidget;
+typedef std::shared_ptr<BaseWidget> PtrWidget;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \brief We register the static BaseWidget type.
@@ -62,7 +56,7 @@ GAIA_REGISTER_TYPE(BaseWidget)
 /// corresponding widget renderer from widget renderer whose name starts
 /// with Base<ParentWidgetName>
 //////////////////////////////////////////////////////////////////////////////
-class GAIA_DLL BaseWidget : public NonCopyable, public boost::enable_shared_from_this<BaseWidget>
+class GAIA_DLL BaseWidget : public NonCopyable, public std::enable_shared_from_this<BaseWidget>
 {
 public:
 	///////////////////////////////////////////////////////////////////////////
@@ -87,16 +81,16 @@ protected:
 	typedef FunctionHandler<Event&>  DimensionsChangedFunction;
 	typedef FunctionHandler<Event&>  GainedLostFocusFunction;
 	typedef FunctionHandler<Event&>  GenericFunction;
-	//typedef boost::function1<void, MouseEvent&> MouseButtonFunction;
-	//typedef boost::function1<void, MouseEvent&> MouseHoverFunction;
-	//typedef boost::function1<void, MouseEvent&> MouseWheelFunction;
-	//typedef boost::function1<void, KeyboardEvent&> KeyboardFunction;
-	//typedef boost::function1<void, KeyboardEvent&> TextFunction;
-	//typedef boost::function1<void, VisibilityEvent&> VisibilityFunction;
-	//typedef boost::function1<void, Event&> EnterExitFunction;
-	//typedef boost::function1<void, Event&> DimensionsChangedFunction;
-	//typedef boost::function1<void, Event&> GainedLostFocusFunction;
-	//typedef boost::function1<void, Event&> GenericFunction;
+	//typedef std::function1<void, MouseEvent&> MouseButtonFunction;
+	//typedef std::function1<void, MouseEvent&> MouseHoverFunction;
+	//typedef std::function1<void, MouseEvent&> MouseWheelFunction;
+	//typedef std::function1<void, KeyboardEvent&> KeyboardFunction;
+	//typedef std::function1<void, KeyboardEvent&> TextFunction;
+	//typedef std::function1<void, VisibilityEvent&> VisibilityFunction;
+	//typedef std::function1<void, Event&> EnterExitFunction;
+	//typedef std::function1<void, Event&> DimensionsChangedFunction;
+	//typedef std::function1<void, Event&> GainedLostFocusFunction;
+	//typedef std::function1<void, Event&> GenericFunction;
 
 public:
 	///////////////////////////////////////////////////////////////////////////
@@ -489,7 +483,7 @@ public:
 	/// type
 	///////////////////////////////////////////////////////////////////////////
 	template<class T>
-	boost::shared_ptr<T> getChild(const std::string& name);
+	std::shared_ptr<T> getChild(const std::string& name);
 
 	///////////////////////////////////////////////////////////////////////////
 	/// \brief Returns all children. 
@@ -1299,7 +1293,7 @@ bool BaseWidget::deleteSharedProperty(const std::string& name)
 //=============================================================================
 ///////////////////////////////////////////////////////////////////////////////
 template<class T>
-boost::shared_ptr<T> BaseWidget::getChild(const std::string& name)
+std::shared_ptr<T> BaseWidget::getChild(const std::string& name)
 {
 	for(unsigned int i = 0; i < myChildren.size(); i++)
 	{
@@ -1307,7 +1301,7 @@ boost::shared_ptr<T> BaseWidget::getChild(const std::string& name)
 		{
 			PtrWidget w = myChildren[i];
 #ifdef _DEBUG
-			boost::shared_ptr<T> res = boost::dynamic_pointer_cast<T>(w);
+			std::shared_ptr<T> res = std::dynamic_pointer_cast<T>(w);
 			if(res == NULL)
 			{
 				throw GuiException("Child widget " + name + 
@@ -1315,13 +1309,13 @@ boost::shared_ptr<T> BaseWidget::getChild(const std::string& name)
 			}
 			return res;
 #else
-			return boost::dynamic_pointer_cast<T>(w);
+			return std::dynamic_pointer_cast<T>(w);
 #endif
 		}
 	}
 
 	ILogger::log(ILogger::ERRORS) << "Widget " << name << " not found\n";
-	return boost::shared_ptr<T>();
+	return std::shared_ptr<T>();
 }
 
 //=============================================================================

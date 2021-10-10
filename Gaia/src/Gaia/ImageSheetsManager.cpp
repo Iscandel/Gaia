@@ -10,7 +10,7 @@ void ImageSheetsManager::registerImageSheet(ImageSheet* is)
 {
 	if(is)
 	{
-		myImageSheets[is->getName()] = boost::shared_ptr<ImageSheet>(is);
+		myImageSheets[is->getName()] = std::shared_ptr<ImageSheet>(is);
 	}
 	else
 	{

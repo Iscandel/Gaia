@@ -187,7 +187,7 @@ protected:
 
 	static const unsigned int SCROLLING_RATE;
 
-	boost::function1<void, float> E_onValueChanged;
+	std::function<void(float)> E_onValueChanged;
 };
 
 ///////////////////////////////////////////////////////////////////////////////

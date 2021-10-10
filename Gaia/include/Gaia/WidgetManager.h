@@ -95,27 +95,27 @@ public:
 	/// \return A smart pointer to the widget.
 	///////////////////////////////////////////////////////////////////////////
 	template<class T> 
-	boost::shared_ptr<T> getWidget(const std::string& name)
+	std::shared_ptr<T> getWidget(const std::string& name)
 	{
 		std::map<std::string, PtrWidget>::iterator it = myWidgets.find(name);
 		
 		if(it != myWidgets.end())
 		{
 #ifdef _DEBUG
-			//assert(boost::dynamic_pointer_cast<T>(it->second) != 0);
-			boost::shared_ptr<T> res = boost::dynamic_pointer_cast<T>(it->second);
+			//assert(std::dynamic_pointer_cast<T>(it->second) != 0);
+			std::shared_ptr<T> res = std::dynamic_pointer_cast<T>(it->second);
 			if(res == NULL)
 			{
 				throw GuiException("Widget " + name + " cannot be converted");
 			}
 			return res;
 #else
-			return boost::dynamic_pointer_cast<T>(it->second); //change to static
+			return std::dynamic_pointer_cast<T>(it->second); //change to static
 #endif
 		}
 		
 		ILogger::log(ILogger::ERRORS) << "Widget " << name << " not found\n";
-		return boost::shared_ptr<T>();
+		return std::shared_ptr<T>();
 	}
 
 	///////////////////////////////////////////////////////////////////////////

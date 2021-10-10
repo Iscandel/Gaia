@@ -12,7 +12,7 @@
 #include "Gaia/Rectangle.h"
 #include "Gaia/Point.h"
 
-#include <boost/smart_ptr.hpp>
+#include <memory>
 
 namespace gaia
 {
@@ -143,7 +143,7 @@ protected:
 	bool myIsArea;
 };
 
-typedef boost::shared_ptr<LayoutInfos> PtrLayoutInfos;
+typedef std::shared_ptr<LayoutInfos> PtrLayoutInfos;
 
 
 class GAIA_DLL RawParser : public NonCopyable

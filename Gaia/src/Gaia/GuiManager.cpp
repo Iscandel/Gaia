@@ -321,9 +321,11 @@ void GuiManager::updateWidgetsContainingMouse(const Point& mousePos)
 	std::vector<PtrWidget> widgets = getWidgetsAt(mousePos);
 	std::vector<WeakPtrWidget> weakWidgets;
 	weakWidgets.assign(widgets.begin(), widgets.end());
+	
+	auto comparator = [] (WeakPtrWidget left, WeakPtrWidget right) -> bool { return left.lock().get() < right.lock().get(); };
 
 	//std::sort(widgets.begin(), widgets.end());
-	std::sort(weakWidgets.begin(), weakWidgets.end());
+	std::sort(weakWidgets.begin(), weakWidgets.end(), comparator);
 
 	//std::vector<PtrWidget> widgetEntered;
 	//std::vector<PtrWidget> widgetsExited;
@@ -333,13 +335,15 @@ void GuiManager::updateWidgetsContainingMouse(const Point& mousePos)
 		weakWidgets.end(), 
 		myHoveredWidgets.begin(), 
 		myHoveredWidgets.end(), 
-		std::inserter(widgetsEntered, widgetsEntered.begin()));
+		std::inserter(widgetsEntered, widgetsEntered.begin()),
+		comparator);
 	
 	std::set_difference(myHoveredWidgets.begin(), 
 		myHoveredWidgets.end(),
 		weakWidgets.begin(), 
 		weakWidgets.end(), 
-		std::inserter(widgetsExited, widgetsExited.begin()));
+		std::inserter(widgetsExited, widgetsExited.begin()),
+		comparator);
 	//std::set_difference(widgets.begin(), 
 	//	widgets.end(), 
 	//	myHoveredWidgets.begin(), 
@@ -440,7 +444,7 @@ PtrDefaultContainer GuiManager::getRootWidget()
 {
 	if(myRootWidget == NULL)
 	{
-		myRootWidget = boost::dynamic_pointer_cast<DefaultContainer>(
+		myRootWidget = std::dynamic_pointer_cast<DefaultContainer>(
 			createWidget("DefaultContainer", "_RootWidget"));
 		myRootWidget->setDimensions(0, 0, getWindowWidth(), getWindowHeight());
 		myRootWidget->setGraphics(myGraphics);
@@ -630,7 +634,7 @@ void GuiManager::draw()
 //Ok. Renommer les classes IXxxx en BaseXxxx si nécessaire
 //Vérifier si on peut déplacer le chargement du LookNFeel
 //Ok. Mettre les includes dans leur propre répertoire
-//Ok. Vérifier les refs sur boost::function
+//Ok. Vérifier les refs sur std::function
 // Ok. virtual getChildAt ?
 // Ok. binding de fonction : instance* = NULL ? pour fonctions libres
 // WidgetLook ajouter nom de l'enfant pour le renderer enfant
@@ -734,7 +738,7 @@ void GuiManager::draw()
 //protected:
 //	PtrWidget MonWidgetCaptureEntrees;
 //	std::deque<PtrWidget> mesWidgetsModaux;
-//	//boost::weak_ptr<
+//	//std::weak_ptr<
 //};
 //
 //

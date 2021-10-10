@@ -44,7 +44,7 @@ SFMLGraphics::SFMLGraphics(sf::RenderWindow* window)
 void SFMLGraphics::drawImage_impl(Image& image, int x, int y, int width, int height)
 {
 	PtrTexture im = image.getTexture();
-	PtrSFMLTexture sfIm = boost::static_pointer_cast<SFMLTexture>(im); //static for perfs ?
+	PtrSFMLTexture sfIm = std::static_pointer_cast<SFMLTexture>(im); //static for perfs ?
 
 	//PtrSFMLTexture sfIm = image.getTextureConvertie<SFMLTexture>();
 

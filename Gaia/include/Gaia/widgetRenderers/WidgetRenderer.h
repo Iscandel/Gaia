@@ -9,6 +9,7 @@
 #include "Gaia/Rectangle.h"
 #include "Gaia/widgets/BaseWidget.h"
 
+#include <assert.h>
 #include <string>
 #include <map>
 

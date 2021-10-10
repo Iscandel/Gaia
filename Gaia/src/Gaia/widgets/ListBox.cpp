@@ -7,6 +7,8 @@
 
 #include "Gaia/widgetRenderers/ListBoxSimpleRenderer.h"
 
+#include <algorithm>
+
 namespace gaia
 {
 //const std::string ListBox::myWidgetType = "ListBox";

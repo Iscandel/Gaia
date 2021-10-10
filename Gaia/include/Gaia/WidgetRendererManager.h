@@ -49,7 +49,7 @@ IWidgetRenderer* create(PtrWidget widget)
 };
 
 /// \brief Practical typedef.
-typedef boost::shared_ptr<WidgetRendererFactory> PtrWidgetRendererFactory;
+typedef std::shared_ptr<WidgetRendererFactory> PtrWidgetRendererFactory;
 
 //=============================================================================
 ///////////////////////////////////////////////////////////////////////////////

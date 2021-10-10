@@ -115,7 +115,7 @@ protected:
 };
 
 /// Smart pointer to SFMLFont.
-typedef boost::shared_ptr<SFMLFont> PtrSFMLFont;
+typedef std::shared_ptr<SFMLFont> PtrSFMLFont;
 
 } //end namespace
 

@@ -66,7 +66,7 @@ void GroupWidgets<T>::remove(T* p)
 }
 
 //Should be the only valid typedef
-typedef boost::shared_ptr<GroupWidgets<ISelectable> >PtrSelectableWidgetGroup;
+typedef std::shared_ptr<GroupWidgets<ISelectable> >PtrSelectableWidgetGroup;
 
 } //end namespace
 

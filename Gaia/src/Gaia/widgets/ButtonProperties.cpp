@@ -7,8 +7,8 @@
 #include "Gaia/tools/Tools.h"
 #include "Gaia/Image.h"
 
+#include <assert.h>
 #include <string>
-#include <boost/tokenizer.hpp>
 
 namespace gaia
 {

@@ -7,6 +7,11 @@
 
 #include "Gaia/Config.h"
 
+#ifdef _MSC_VER
+	#pragma warning(disable: 4275) // disable warning 4275
+#endif
+
+
 namespace gaia
 {
 ///////////////////////////////////////////////////////////////////////////////
@@ -52,6 +57,10 @@ public:
 	IllegalArgument(const std::string& reason);
 };
 };
+
+#ifdef _MSC_VER
+	#pragma warning(default: 4275) // enable warning 4275back
+#endif
 
 #endif
 

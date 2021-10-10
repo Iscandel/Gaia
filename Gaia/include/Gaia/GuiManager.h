@@ -131,13 +131,13 @@ public:
 	/// \return A smart pointer to the widget.
 	//////////////////////////////////////////////////////////////////////////
 	template<class T> 
-	boost::shared_ptr<T> getWidget(const std::string& name)
+	std::shared_ptr<T> getWidget(const std::string& name)
 	{
 		return WidgetsManager::getInstance()->getWidget<T>(name);
 	}
 
 	//template <class TypeGen, class Classe<TypeGen> >
-	//boost::shared_ptr<TypeGen> getWidget2(const std::string& name)
+	//std::shared_ptr<TypeGen> getWidget2(const std::string& name)
 	//{
 	//	return WidgetsManager::getInstance()->getWidget<TypeGen>(name);
 	//}
@@ -363,7 +363,7 @@ protected:
 	//float myRatioX;
 	//float myRatioY;
 
-	typedef boost::weak_ptr<BaseWidget> WeakPtrWidget;
+	typedef std::weak_ptr<BaseWidget> WeakPtrWidget;
 
 	//std::vector<PtrWidget> myHoveredWidgets;
 	std::vector<WeakPtrWidget> myHoveredWidgets;

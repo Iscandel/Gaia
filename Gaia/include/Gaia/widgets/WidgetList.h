@@ -1,7 +1,7 @@
 #ifndef H__WIDGETLIST_240920111731__H
 #define H__WIDGETLIST_240920111731__H
 
-#include <boost/smart_ptr.hpp>
+#include <memory>
 
 #include "Gaia/widgets/BaseListBoxItem.h"
 #include "Gaia/widgets/BaseWidget.h"

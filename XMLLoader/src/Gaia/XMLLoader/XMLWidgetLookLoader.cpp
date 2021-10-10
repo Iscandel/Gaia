@@ -2,7 +2,7 @@
 // Headers
 ///////////////////////////////////////////////////////////////////////////////
 #include "Gaia/XMLLoader/XMLWidgetLookLoader.h"
-#include "../../../../Dependencies/Headers/tinyxml/tinyxml.h"
+#include "tinyxml/tinyxml.h"
 
 namespace gaia
 {

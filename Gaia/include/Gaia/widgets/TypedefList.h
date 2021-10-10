@@ -1,7 +1,7 @@
 #ifndef H__TYPEDEFLIST_240920111726__H
 #define H__TYPEDEFLIST_240920111726__H
 
-#include <boost/smart_ptr.hpp>
+#include <memory>
 
 namespace gaia
 {
@@ -27,27 +27,27 @@ class TextListBoxItem;
 class Window;
 class TitleBar;
 
-typedef boost::shared_ptr<BaseListBoxItem> PtrBaseListBoxItem;
-typedef boost::shared_ptr<BaseWidget> PtrWidget;
-typedef boost::shared_ptr<Button> PtrButton;
-typedef boost::shared_ptr<CheckBox> PtrCheckBox;
-typedef boost::shared_ptr<ComboBox> PtrComboBox;
-typedef boost::shared_ptr<ComboListBox> PtrComboListBox;
-typedef boost::shared_ptr<DefaultContainer> PtrDefaultContainer;
-typedef boost::shared_ptr<ImageBox> PtrImageBox;
-typedef boost::shared_ptr<Label> PtrLabel;
-typedef boost::shared_ptr<ListBox> PtrListBox;
-typedef boost::shared_ptr<LinkedLabels> PtrLinkedLabels;
-typedef boost::shared_ptr<NumericTextBox> PtrNumericTextBox;
-typedef boost::shared_ptr<ProgressBar> PtrProgressBar;
-typedef boost::shared_ptr<RadioButton> PtrRadioButton;
-typedef boost::shared_ptr<ScrollBar> PtrScrollBar;
-typedef boost::shared_ptr<Slider> PtrSlider;
-typedef boost::shared_ptr<TextBox> PtrTextBox;
-typedef boost::shared_ptr<TextField> PtrTextField;
-typedef boost::shared_ptr<TextListBoxItem> PtrTextListBoxItem;
-typedef boost::shared_ptr<Window> PtrWindow;
-typedef boost::shared_ptr<TitleBar> PtrTitleBar;
+typedef std::shared_ptr<BaseListBoxItem> PtrBaseListBoxItem;
+typedef std::shared_ptr<BaseWidget> PtrWidget;
+typedef std::shared_ptr<Button> PtrButton;
+typedef std::shared_ptr<CheckBox> PtrCheckBox;
+typedef std::shared_ptr<ComboBox> PtrComboBox;
+typedef std::shared_ptr<ComboListBox> PtrComboListBox;
+typedef std::shared_ptr<DefaultContainer> PtrDefaultContainer;
+typedef std::shared_ptr<ImageBox> PtrImageBox;
+typedef std::shared_ptr<Label> PtrLabel;
+typedef std::shared_ptr<ListBox> PtrListBox;
+typedef std::shared_ptr<LinkedLabels> PtrLinkedLabels;
+typedef std::shared_ptr<NumericTextBox> PtrNumericTextBox;
+typedef std::shared_ptr<ProgressBar> PtrProgressBar;
+typedef std::shared_ptr<RadioButton> PtrRadioButton;
+typedef std::shared_ptr<ScrollBar> PtrScrollBar;
+typedef std::shared_ptr<Slider> PtrSlider;
+typedef std::shared_ptr<TextBox> PtrTextBox;
+typedef std::shared_ptr<TextField> PtrTextField;
+typedef std::shared_ptr<TextListBoxItem> PtrTextListBoxItem;
+typedef std::shared_ptr<Window> PtrWindow;
+typedef std::shared_ptr<TitleBar> PtrTitleBar;
 
 }
 #endif

@@ -35,7 +35,7 @@ public:
 	void clean();
 
 protected:
-	typedef boost::weak_ptr<BaseWidget> WeakPtrWidget;
+	typedef std::weak_ptr<BaseWidget> WeakPtrWidget;
 
 	//WeakPtrWidget myWidgetCaughtInputs;
 	std::deque<WeakPtrWidget> myWidgetCaughtInputs;

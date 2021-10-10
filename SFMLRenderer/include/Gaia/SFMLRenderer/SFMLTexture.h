@@ -69,7 +69,7 @@ protected:
 };
 
 ///Smart pointer to an SFML texture
-typedef boost::shared_ptr<SFMLTexture> PtrSFMLTexture; 
+typedef std::shared_ptr<SFMLTexture> PtrSFMLTexture; 
 
 } //end namespace
 

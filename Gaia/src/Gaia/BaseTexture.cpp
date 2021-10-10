@@ -4,7 +4,7 @@
 
 namespace gaia
 {
-boost::shared_ptr<BaseImageLoader> BaseTexture::myImageLoader;// = NULL;
+std::shared_ptr<BaseImageLoader> BaseTexture::myImageLoader;// = NULL;
 
 //=============================================================================
 ///////////////////////////////////////////////////////////////////////////////

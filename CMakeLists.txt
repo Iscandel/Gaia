@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(GAIA)
+PROJECT(Gaia)
 
 set(${PROJECT_NAME}_MAJOR_VERSION 0)
 set(${PROJECT_NAME}_MINOR_VERSION 9)
@@ -11,9 +11,7 @@ set(BUILD_XML TRUE CACHE BOOL "Check to build XML module")
 set(BUILD_SFML_RENDERER TRUE CACHE BOOL "Check to build SFML renderer module")
 set(BUILD_SDL_RENDERER TRUE CACHE BOOL "Check to build SFML renderer module")
 set(BUILD_EXAMPLES TRUE CACHE BOOL "Check to build examples")
-set(BOOST_INCLUDEDIR "" CACHE PATH "Fill in the Boost include path if Boost was not found.")
-include_directories("${PROJECT_SOURCE_DIR}/GUIEnglish/include")
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/CMake/Modules/")
+#set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/CMake/Modules/")
 
 
 #if(NOT BUILD_SHARED_LIBS)
@@ -42,6 +40,6 @@ if(${BUILD_XML})
 	add_subdirectory(XMLLoader)
 endif()
 
-if(${BUILD_EXAMPLES })
+if(${BUILD_EXAMPLES})
 	add_subdirectory(Examples)
 endif()

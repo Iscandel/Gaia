@@ -70,7 +70,7 @@ namespace priv
 	//{ \
 	//	static const char* get() {return #widgetType;} \
 	//	T dummy;
-	// std::map<string, boost<shared_ptr<T> > association;
+	// std::map<string, std<shared_ptr<T> > association;
 	//
 	//};
 	//template<class T, class U = int>

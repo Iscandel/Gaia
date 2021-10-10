@@ -7,6 +7,7 @@
 #include "Gaia/tools/Logger.h"
 #include "Gaia/tools/Tools.h"
 
+#include <assert.h>
 #include <vector>
 
 namespace gaia

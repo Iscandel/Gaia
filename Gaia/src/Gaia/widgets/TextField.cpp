@@ -25,7 +25,7 @@ TextField::TextField(const std::string& name, int x, int y, int width, int heigh
 	copyProperties<TextField>();
 	getScrollBarV();
 	
-	//MaScrollBar->souscrireValeurScrollChange(boost::bind(&TextField::valeurScrollAChange, this, _1));
+	//MaScrollBar->souscrireValeurScrollChange(std::bind(&TextField::valeurScrollAChange, this, _1));
 }
 
 //=============================================================================

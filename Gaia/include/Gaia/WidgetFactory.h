@@ -46,7 +46,7 @@ protected:
 	std::string myType;
 };
 
-typedef boost::shared_ptr<WidgetFactory> PtrWidgetFactory; ///< Typedef for smart pointers to widget factory.
+typedef std::shared_ptr<WidgetFactory> PtrWidgetFactory; ///< Typedef for smart pointers to widget factory.
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \brief Constructs a widget of the given type.

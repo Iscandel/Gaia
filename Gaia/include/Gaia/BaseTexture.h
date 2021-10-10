@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include <string>
 
-#include <boost/smart_ptr.hpp>
+#include <memory>
 
 #include "Gaia/Config.h"
 
@@ -15,7 +15,7 @@ namespace gaia
 class BaseImageLoader;
 class BaseTexture;
 
-typedef boost::shared_ptr<BaseTexture> PtrTexture;
+typedef std::shared_ptr<BaseTexture> PtrTexture;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \brief Base class for texture.
@@ -72,7 +72,7 @@ public:
 	virtual int getWidth() const = 0;
 
 protected:
-	static boost::shared_ptr<BaseImageLoader> myImageLoader;
+	static std::shared_ptr<BaseImageLoader> myImageLoader;
 };
 
 } // end namespace
