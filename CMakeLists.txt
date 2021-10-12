@@ -13,14 +13,13 @@ set(BUILD_SDL_RENDERER TRUE CACHE BOOL "Check to build SFML renderer module")
 set(BUILD_EXAMPLES TRUE CACHE BOOL "Check to build examples")
 #set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/CMake/Modules/")
 
-
 #if(NOT BUILD_SHARED_LIBS)
 #	add_definitions(-DGAIA_STATIC)
 #else()
 #	add_definitions(-DGAIA_EXPORT)
 #endif()
 
-set(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/lib")
+#set(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/lib")
 
 if(MSVC)
 	add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
@@ -43,3 +42,20 @@ endif()
 if(${BUILD_EXAMPLES})
 	add_subdirectory(Examples)
 endif()
+
+
+
+install(
+	EXPORT Gaia-export
+	FILE
+	GaiaTargets.cmake
+	NAMESPACE
+	gaia::
+	DESTINATION
+	lib/cmake/Gaia
+)
+
+install(
+	FILES
+	${CMAKE_CURRENT_SOURCE_DIR}/cmake/GaiaConfig.cmake
+	DESTINATION "lib/cmake/Gaia" )

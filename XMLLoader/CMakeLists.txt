@@ -14,13 +14,18 @@ file(
 		${tinyxml_dir}/tinyxmlparser.cpp
 		${src_dir}/XMLGuiLoader.cpp
 		${src_dir}/XMLWidgetLookLoader.cpp
+)
+
+file(
+		GLOB_RECURSE
+		inc_files
 		${include_dir}/XMLConfig.h
 		${include_dir}/XMLGaia.h
 		${include_dir}/XMLGuiLoader.h
 		${include_dir}/XMLWidgetLookLoader.h
 )
 
-add_library(XMLGaia ${source_files}) #SHARED OR STATIC is automatically determined
+add_library(XMLGaia ${source_files} ${inc_files}) #SHARED OR STATIC is automatically determined
 add_dependencies(XMLGaia gaia)
 #link_directories("${PROJECT_SOURCE_DIR}/lib")
 target_link_libraries(
@@ -55,3 +60,17 @@ else()
 					-TIXML_USE_STL
 	)
 endif()	
+
+install(
+	TARGETS XMLGaia
+	EXPORT Gaia-export
+	LIBRARY DESTINATION lib
+	RUNTIME DESTINATION bin
+	ARCHIVE DESTINATION lib
+)
+
+install(
+	FILES
+	${inc_files}
+	DESTINATION "include/Gaia/XMLLoader"
+)

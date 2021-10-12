@@ -9,12 +9,17 @@ find_package(OpenGL REQUIRED)
 
 file(
 		GLOB_RECURSE
-		source_files
-		${CMAKE_CURRENT_SOURCE_DIR}/src/*
+		inc_files
 		${CMAKE_CURRENT_SOURCE_DIR}/include/*
 )
 
-add_library(${PROJECT_NAME} ${source_files}) #SHARED OR STATIC is automatically determined
+file(
+		GLOB_RECURSE
+		src_files
+		${CMAKE_CURRENT_SOURCE_DIR}/src/*
+)
+
+add_library(${PROJECT_NAME} ${src_files} ${inc_files}) #SHARED OR STATIC is automatically determined
 add_dependencies(${PROJECT_NAME} gaia)
 #target_link_directories("${PROJECT_SOURCE_DIR}/lib")
 target_link_libraries(
@@ -51,3 +56,17 @@ else()
 					-DGAIA_STATIC
 	)
 endif()	
+
+install(
+	TARGETS ${PROJECT_NAME}
+	EXPORT Gaia-export
+	LIBRARY DESTINATION lib
+	RUNTIME DESTINATION bin
+	ARCHIVE DESTINATION lib
+)
+
+install(
+	FILES
+	${inc_files}
+	DESTINATION "include/Gaia/SFMLRenderer"
+)
