@@ -35,9 +35,10 @@ namespace tools
 
 	//=========================================================================
 	///////////////////////////////////////////////////////////////////////////
-	std::vector<std::string> split(const std::string& s, const std::string& regex)
+	std::vector<std::string> split(const std::string& s, const std::string& separator)
 	{
 		std::vector<std::string> res;
+		std::string regex = "[^" + separator + "]+";
 		std::regex words_regex(regex);
 		auto words_begin = std::sregex_iterator(s.begin(), s.end(), words_regex);
 		auto words_end = std::sregex_iterator();
