@@ -74,7 +74,7 @@ namespace gaia
 
 		bool isDefined() const 
 		{
-			return !myFunction;
+			return (bool)myFunction;
 		}
 
 		void operator() (T ev)//(T ev)
